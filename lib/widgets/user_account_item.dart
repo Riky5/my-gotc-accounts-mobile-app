@@ -19,9 +19,13 @@ class UserAccountItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: ImageAvatar(),
       ),
-      title: Text(
-        name,
-        style: Theme.of(context).textTheme.headline6,
+      title: FittedBox(
+        alignment: Alignment.centerLeft,
+        fit: BoxFit.scaleDown,
+        child: Text(
+          name,
+          style: Theme.of(context).textTheme.headline6,
+        ),
       ),
       trailing: Container(
         width: 100,

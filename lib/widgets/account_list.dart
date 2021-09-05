@@ -14,14 +14,17 @@ class AccountList extends StatelessWidget {
             padding: EdgeInsets.all(15),
             children: [
               SizedBox(
-                  height: 30,
-                  child: Text('No Accounts Added Yet!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ))),
+                height: 30,
+                child: Text(
+                  'No Accounts Added Yet!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
+                ),
+              ),
               Image.asset(
                 'images/gotc_loading.PNG',
                 fit: BoxFit.cover,
@@ -29,14 +32,14 @@ class AccountList extends StatelessWidget {
             ],
           )
         : Container(
+            padding: EdgeInsets.all(5),
+            color: Theme.of(context).primaryColorLight,
             child: ListView.builder(
               itemCount: accounts.length,
               itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
                 // create: (c) => account[i],
                 value: accounts[i], //value constructor for lists
-                child: AccountItem(
-                    // accounts[i].id, accounts[i].name, accounts[i].gold,
-                    ),
+                child: AccountItem(),
               ),
             ),
           );

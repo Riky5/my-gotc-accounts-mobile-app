@@ -23,9 +23,7 @@ class AppDrawer extends StatelessWidget {
             ),
             title: Text(
               'GOTC Accounts',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: Theme.of(context).accentTextTheme.headline6,
             ),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/');
@@ -40,14 +38,25 @@ class AppDrawer extends StatelessWidget {
             ),
             title: Text(
               'Manage Accounts',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: Theme.of(context).accentTextTheme.headline6,
             ),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(UserAccountScreen.routeName);
             },
+          ),
+          Divider(),
+          ListTile(
+            leading: FaIcon(
+              FontAwesomeIcons.signOutAlt,
+              color: Colors.white,
+              size: 17,
+            ),
+            title: Text(
+              'Logout',
+              style: Theme.of(context).accentTextTheme.headline6,
+            ),
+            onTap: () {},
           ),
         ],
       ),

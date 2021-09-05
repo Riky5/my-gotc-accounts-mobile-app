@@ -46,15 +46,14 @@ class _MainScreenState extends State<MainScreen> {
     print('building main screen');
     final appBar = AppBar(
       title: Text(
-        'GOTC Accounts:',
-        style: Theme.of(context).textTheme.headline6,
+        'My GOTC Accounts:',
+        style: Theme.of(context).accentTextTheme.headline6,
       ),
       actions: [
         IconButton(
           onPressed: () {
             Navigator.of(context).pushNamed(EditAccountsScreen.routeName);
           },
-          // onPressed: () => _createAddNewAccount(context),
           tooltip: 'Add New Account',
           icon: Icon(
             Icons.add,

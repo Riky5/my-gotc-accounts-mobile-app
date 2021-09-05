@@ -332,7 +332,7 @@ class _EditAccountsScreenState extends State<EditAccountsScreen> {
                     Row(
                       children: [
                         GestureDetector(
-                          onTap: _saveForm,
+                          onTap: () {},
                           child: Container(
                             width: 100,
                             height: 100,
@@ -341,7 +341,7 @@ class _EditAccountsScreenState extends State<EditAccountsScreen> {
                           ),
                         ),
                         GestureDetector(
-                          onTap: _saveForm,
+                          onTap: () {},
                           child: Container(
                             width: 100,
                             height: 100,

@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
         title: 'GOTC Account Manager',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          backgroundColor: Colors.blue,
           accentColor: Colors.pink.shade300,
+          accentColorBrightness: Brightness.dark,
           canvasColor: Color.fromRGBO(0, 0, 0, 1),
           fontFamily: 'Cinzel',
           appBarTheme: AppBarTheme(
@@ -34,11 +36,12 @@ class MyApp extends StatelessWidget {
                 )),
           ),
           textTheme: ThemeData.light().textTheme.copyWith(
-                  headline6: TextStyle(
-                fontFamily: 'Cinzel',
-                fontWeight: FontWeight.w700,
-                fontSize: 20,
-              )),
+                headline6: TextStyle(
+                  fontFamily: 'Cinzel',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20,
+                ),
+              ),
         ),
         home: MainScreen(),
         routes: {

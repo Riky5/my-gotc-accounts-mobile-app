@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart' as intl;
 
 import '../widgets/image_avatar.dart';
 import '../providers/accounts_provider.dart';
@@ -12,6 +13,7 @@ class AccountDetails extends StatelessWidget {
     final selectedAccount =
         Provider.of<AccountsProvider>(context, listen: false)
             .findById(accountId);
+    final fN = intl.NumberFormat("###,###,###,##0");
     return Card(
       color: Theme.of(context).backgroundColor,
       child: Column(
@@ -50,7 +52,7 @@ class AccountDetails extends StatelessWidget {
                   trailing: Container(
                     margin: EdgeInsets.only(right: 20),
                     child: Text(
-                      '${selectedAccount.gold}',
+                      '${fN.format(selectedAccount.gold)}',
                       style: TextStyle(
                         fontFamily: 'Cinzel',
                         fontWeight: FontWeight.w600,
@@ -80,7 +82,7 @@ class AccountDetails extends StatelessWidget {
                   trailing: Container(
                     margin: EdgeInsets.only(right: 20),
                     child: Text(
-                      '${selectedAccount.food}',
+                      '${fN.format(selectedAccount.food)}',
                       style: TextStyle(
                         fontFamily: 'Cinzel',
                         fontWeight: FontWeight.w600,
@@ -110,7 +112,7 @@ class AccountDetails extends StatelessWidget {
                   trailing: Container(
                     margin: EdgeInsets.only(right: 20),
                     child: Text(
-                      '${selectedAccount.wood}',
+                      '${fN.format(selectedAccount.wood)}',
                       style: TextStyle(
                         fontFamily: 'Cinzel',
                         fontWeight: FontWeight.w600,
@@ -140,7 +142,7 @@ class AccountDetails extends StatelessWidget {
                   trailing: Container(
                     margin: EdgeInsets.only(right: 20),
                     child: Text(
-                      '${selectedAccount.stone}',
+                      '${fN.format(selectedAccount.stone)}',
                       style: TextStyle(
                         fontFamily: 'Cinzel',
                         fontWeight: FontWeight.w600,
@@ -170,7 +172,7 @@ class AccountDetails extends StatelessWidget {
                   trailing: Container(
                     margin: EdgeInsets.only(right: 20),
                     child: Text(
-                      '${selectedAccount.iron}',
+                      '${fN.format(selectedAccount.iron)}',
                       style: TextStyle(
                         fontFamily: 'Cinzel',
                         fontWeight: FontWeight.w600,

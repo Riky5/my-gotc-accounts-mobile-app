@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart' as intl;
 
 import '../widgets/image_avatar.dart';
 import '../screens/account_details_screen.dart';
@@ -10,14 +11,15 @@ class AccountItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loadedAccount = Provider.of<Account>(context);
+    final formatted = intl.NumberFormat.compact().format(loadedAccount.gold);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       elevation: 3,
       shadowColor: Colors.white,
-      margin: EdgeInsets.symmetric(
-        vertical: 5,
-        horizontal: 10,
-      ),
+      // margin: EdgeInsets.symmetric(
+      //   vertical: 5,
+      //   horizontal: 10,
+      // ),
       color: Theme.of(context).primaryColorDark,
       child: GestureDetector(
         onTap: () {
@@ -27,7 +29,7 @@ class AccountItem extends StatelessWidget {
           ); //to NAVIGATE TO THE ACCOUNT DETAIL SCREEN
         },
         child: Container(
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(6),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(15),
@@ -47,7 +49,7 @@ class AccountItem extends StatelessWidget {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                FittedBox(
                   child: Text(
                     loadedAccount.name,
                     style: Theme.of(context).textTheme.headline6,
@@ -73,7 +75,7 @@ class AccountItem extends StatelessWidget {
                         ), //Icon reppresenting Gold
                       ),
                       Text(
-                        loadedAccount.gold.toString(),
+                        formatted.toString(),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,

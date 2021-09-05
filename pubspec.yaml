@@ -32,6 +32,8 @@ dependencies:
   font_awesome_flutter: ^9.1.0
   provider: ^5.0.0
   http: ^0.13.3
+  cloud_firestore: ^2.5.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +58,7 @@ flutter:
     - images/magic_avatar.jpg
     - images/guy_avatar.jpg
     - images/witch_avatar.jpg
+    - images/creatures-bkg.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
