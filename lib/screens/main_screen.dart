@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../screens/edit_accounts_screen.dart';
-import '../widgets/account_list.dart';
+import '../widgets/account_grid.dart';
 import '../widgets/app_drawer.dart';
 import '../providers/accounts_provider.dart';
 
@@ -76,7 +76,7 @@ class _MainScreenState extends State<MainScreen> {
                             appBar.preferredSize.height -
                             MediaQuery.of(context).padding.top) *
                         1,
-                    child: AccountList(),
+                    child: AccountGrid(),
                   ),
                 ],
               ),

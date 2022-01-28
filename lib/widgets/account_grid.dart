@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/accounts_provider.dart';
 import '../widgets/account_item.dart';
 
-class AccountList extends StatelessWidget {
+class AccountGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final accountData = Provider.of<AccountsProvider>(context);
@@ -34,12 +34,18 @@ class AccountList extends StatelessWidget {
         : Container(
             padding: EdgeInsets.all(5),
             color: Theme.of(context).primaryColorLight,
-            child: ListView.builder(
+            child: GridView.builder(
               itemCount: accounts.length,
               itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
                 // create: (c) => account[i],
                 value: accounts[i], //value constructor for lists
                 child: AccountItem(),
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.13,
+                crossAxisSpacing: 6,
+                mainAxisSpacing: 6,
               ),
             ),
           );

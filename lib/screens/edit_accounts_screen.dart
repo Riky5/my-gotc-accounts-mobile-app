@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/account.dart';
 import '../providers/accounts_provider.dart';
+import '../widgets/image_selection.dart';
 
 class EditAccountsScreen extends StatefulWidget {
   static const routeName = '/edit_account';
@@ -108,22 +109,12 @@ class _EditAccountsScreenState extends State<EditAccountsScreen> {
           ),
         );
       }
-      // finally {
-      //   setState(() {
-      //     _isLoading = false;
-      //   });
-      //   Navigator.of(context).pop();
-      // }
     }
     setState(() {
       _isLoading = false;
     });
     Navigator.of(context).pop();
   }
-
-  // void _selectImage() {
-  //   _editedAccount.image =
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -329,28 +320,23 @@ class _EditAccountsScreenState extends State<EditAccountsScreen> {
                         );
                       },
                     ),
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(5),
-                            child: Image.asset('images/dothraki_avatar.jpg'),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(5),
-                            child: Image.asset('images/girl_avatar.jpg'),
-                          ), // MODIFY LATER - DUMMY ATM
-                        ),
-                      ],
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: 5,
+                      ),
+                      padding: EdgeInsets.all(5),
+                      height: 200,
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: ImageSelection(),
+                      ),
                     ),
+                    // width: 100,
+                    // height: 100,
+                    // margin: EdgeInsets.all(5),
+                    // child: PickedImage(),
+                    // Image.asset('images/girl_avatar.jpg'),
+                    // MODIFY LATER - DUMMY ATM
                     TextButton(
                       child: Text('SAVE'),
                       onPressed: _saveForm,

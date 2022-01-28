@@ -12,15 +12,15 @@ class AccountItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final loadedAccount = Provider.of<Account>(context);
     final formatted = intl.NumberFormat.compact().format(loadedAccount.gold);
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      elevation: 3,
-      shadowColor: Colors.white,
-      // margin: EdgeInsets.symmetric(
-      //   vertical: 5,
-      //   horizontal: 10,
-      // ),
-      color: Theme.of(context).primaryColorDark,
+    return Container(
+      height: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+        color: Theme.of(context).primaryColor,
+      ),
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).pushNamed(
@@ -28,74 +28,75 @@ class AccountItem extends StatelessWidget {
             arguments: loadedAccount.id,
           ); //to NAVIGATE TO THE ACCOUNT DETAIL SCREEN
         },
-        child: Container(
-          margin: EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(
-              width: 2,
-              color: Colors.white,
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-          ),
-          child: ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: ImageAvatar(),
-            ), //IMAGE avatar on the left
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          children: [
+            Stack(
               children: [
-                FittedBox(
-                  child: Text(
-                    loadedAccount.name,
-                    style: Theme.of(context).textTheme.headline6,
-                    textAlign: TextAlign.start,
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 25,
                   ),
-                ), //Account Name
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 5,
+                  child: ImageAvatar(),
+                ),
+                Positioned(
+                  child: Container(
+                    width: 200,
+                    padding: EdgeInsets.all(2),
+                    child: Text(
+                      loadedAccount.name,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).accentTextTheme.headline6,
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5,
-                          right: 10,
+                ),
+                Positioned(
+                  width: 200,
+                  bottom: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      // borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          child: FaIcon(
+                            FontAwesomeIcons.coins,
+                            color: Colors.amber.shade600,
+                            size: 17,
+                          ), //Icon reppresenting Gold
                         ),
-                        child: FaIcon(
-                          FontAwesomeIcons.coins,
-                          color: Colors.amber.shade600,
-                          size: 17,
-                        ), //Icon reppresenting Gold
-                      ),
-                      Text(
-                        formatted.toString(),
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ), // Gold Amount
-                      ),
-                    ],
+                        Text(
+                          formatted.toString(),
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ), // Gold Amount
+                        ),
+                        Consumer<Account>(
+                          builder: (ctx, account, child) => IconButton(
+                            onPressed: loadedAccount.toggleFavouriteAccounts,
+                            icon: Icon(
+                              account.isFavourite
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color: Theme.of(context).accentColor,
+                              size: 22,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
-            ),
-            trailing: Consumer<Account>(
-              builder: (ctx, account, child) => IconButton(
-                onPressed: loadedAccount.toggleFavouriteAccounts,
-                icon: Icon(
-                  account.isFavourite ? Icons.favorite : Icons.favorite_border,
-                  color: Theme.of(context).accentColor,
-                ),
-              ),
-            ),
-          ),
+            )
+          ],
         ),
       ),
     );
