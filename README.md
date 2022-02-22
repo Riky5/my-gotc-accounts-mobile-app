@@ -1,16 +1,10 @@
-# my_got_accounts_app_v2
+# My GOTC Accounts app v2
 
-A new Flutter project.
+A personal flutter project/exercise. Simple mobile app that hold informations about owned GOTC accounts.
 
-## Getting Started
+You can add an account.
+You can view details of your account/s.
+You can edit details of your account/s.
+You can delete your account/s.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+All the details are stored on real time firebase database.

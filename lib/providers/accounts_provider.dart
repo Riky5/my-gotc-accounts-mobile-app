@@ -5,26 +5,7 @@ import 'package:http/http.dart' as http;
 import '../providers/account.dart';
 
 class AccountsProvider with ChangeNotifier {
-  List<Account> _items = [
-    // Account(
-    //   id: 'n1',
-    //   name: 'Mini World',
-    //   gold: 21000,
-    //   food: 0,
-    //   wood: 0,
-    //   stone: 0,
-    //   iron: 0,
-    // ),
-    // Account(
-    //   id: 'n2',
-    //   name: 'Mini Trip',
-    //   gold: 88693,
-    //   food: 107113000,
-    //   wood: 88308000,
-    //   stone: 8316200,
-    //   iron: 822200,
-    // ),
-  ]; //DUMMY DATA;
+  List<Account> _items = [];
 
   List<Account> get items {
     return [..._items];
